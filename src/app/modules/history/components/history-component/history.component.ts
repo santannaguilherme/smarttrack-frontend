@@ -17,6 +17,6 @@ export class HistoryComponent implements OnInit {
     setTimeout(() => this.historyList = this.historyService.state,2000)
   }
 
-  displayedColumns: string[] = ['id', 'worker', 'machine', 'dateTime'];
+  displayedColumns: string[] = ['id', 'worker', 'machine', 'date'];
   dataSource = this.historyList;
 }
