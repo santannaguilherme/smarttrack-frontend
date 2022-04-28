@@ -6,11 +6,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HistoryComponent } from './modules/history/components/history-component/history.component';
 import { MatTableModule } from '@angular/material/table';
 import { HttpClientModule } from '@angular/common/http';
+import { HistoryModule } from './modules/history/history.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HistoryComponent
   ],
   exports:[AppComponent],
   imports: [
@@ -18,6 +18,7 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserAnimationsModule,
     MatTableModule,
     HttpClientModule,
+    HistoryModule
   ],
   providers: [HttpClientModule,],
   bootstrap: [AppComponent]

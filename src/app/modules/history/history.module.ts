@@ -10,6 +10,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatCardModule } from '@angular/material/card';
 import { HistoryComponent } from './components/history-component/history.component';
 import {MatTableModule} from '@angular/material/table';
+import {MatIconModule} from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import {MatTableModule} from '@angular/material/table';
     MatToolbarModule,
     MatCardModule,
     MatTableModule,
+    MatIconModule
   ],
   providers: [],
 })
-export class SiteModule {}
+export class HistoryModule {}
