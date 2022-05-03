@@ -11,14 +11,18 @@ import { MatCardModule } from '@angular/material/card';
 import { HistoryComponent } from './components/history-component/history.component';
 import {MatTableModule} from '@angular/material/table';
 import {MatIconModule} from '@angular/material/icon';
+import { HistoryCreateComponent } from './components/history-create-component/historyCreate.component';
+
 
 @NgModule({
   declarations: [
     HistoryComponent,
+    HistoryCreateComponent
   ],
 
   exports: [
-    HistoryComponent
+    HistoryComponent,
+    HistoryCreateComponent
   ],
   imports: [
     CommonModule,

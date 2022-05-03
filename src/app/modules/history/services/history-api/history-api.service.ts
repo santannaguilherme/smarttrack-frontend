@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { History } from '../../models/history';
 
@@ -13,7 +13,11 @@ export class HistoryApiService {
   getHistory() {
     return this.http.get<History[]>(this.url);
   }
-
+  getHistoryById(id: number) {
+    let params = new HttpParams();
+    params = params.append('id', id);
+    return this.http.get<History[]>(this.url, {params});
+  }
   saveHistory(history: History): Observable<History> {
     let httpHeaders = new HttpHeaders({
       'Content-Type': 'application/json',

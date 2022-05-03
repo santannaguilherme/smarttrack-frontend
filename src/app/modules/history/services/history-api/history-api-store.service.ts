@@ -8,19 +8,17 @@ import { HistoryApiService } from './history-api.service';
   providedIn: 'root',
 })
 export class HistoryApiStoreService extends Store<History[]> {
-
   constructor(private api: HistoryApiService) {
     super([]);
   }
 
-
   historyQuery() {
     return this.api.getHistory();
   }
-  
+
   listHistory() {
     this.setState([]);
-    console.log('here')
+    console.log('here');
     this.historyQuery().subscribe((data) => {
       for (let item of data) {
         let list = this.state;
@@ -31,5 +29,11 @@ export class HistoryApiStoreService extends Store<History[]> {
   }
   saveHistory(history: History) {
     return this.api.saveHistory(history);
+  }
+
+  getHistoryById(id: number) {
+    this.api.getHistoryById(id).subscribe((data) => {
+      this.setState(data);
+    });
   }
 }

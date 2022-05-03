@@ -1,24 +1,37 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 import { History } from '../../models/history';
 import { HistoryApiStoreService } from '../../services/history-api/history-api-store.service';
 
 @Component({
-  selector: 'app-history',
-  templateUrl: './history.component.html',
-  styleUrls: ['./history.component.css'],
+  selector: 'app-historyCreate',
+  templateUrl: './historyCreate.component.html',
+  styleUrls: ['./historyCreate.component.css'],
 })
-export class HistoryComponent implements OnInit {
+export class HistoryCreateComponent implements OnInit {
   historyList: any;
-  constructor(private  historyService:HistoryApiStoreService) {
+  pageForm: FormGroup;
+  constructor(
+    private historyService: HistoryApiStoreService,
+    private fb: FormBuilder,
+    private route: Router
+  ) {
+    this.pageForm = this.fb.group({
+      id: [''],
+      worker: [''],
+      machine: [''],
+      date: [''],
+    });
   }
-  dataSource = []
-  ngOnInit(): void {
-    this.historyService.listHistory();
-    setTimeout(() => this.historyList = this.historyService.state,2000)
-    
-    
+  dataSource = [];
+  ngOnInit(): void {}
+  postHistory() {
+    console.log(this.pageForm.value);
+    const history = this.pageForm.value as History;
+    this.historyService
+      .saveHistory(history)
+      .subscribe((data) => this.route.navigateByUrl('/'));
+    this.route.navigateByUrl('/');
   }
-  displayedColumns = ['id', 'worker', 'machine', 'date', 'edit'];
-  
 }

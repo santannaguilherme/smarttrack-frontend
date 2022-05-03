@@ -7,6 +7,7 @@ import { HistoryComponent } from './modules/history/components/history-component
 import { MatTableModule } from '@angular/material/table';
 import { HttpClientModule } from '@angular/common/http';
 import { HistoryModule } from './modules/history/history.module';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { HistoryModule } from './modules/history/history.module';
     BrowserAnimationsModule,
     MatTableModule,
     HttpClientModule,
-    HistoryModule
+    HistoryModule,
+    AppRoutingModule
   ],
   providers: [HttpClientModule,],
   bootstrap: [AppComponent]

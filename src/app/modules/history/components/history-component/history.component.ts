@@ -1,5 +1,7 @@
+import { HttpParams } from '@angular/common/http';
 import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 import { History } from '../../models/history';
 import { HistoryApiStoreService } from '../../services/history-api/history-api-store.service';
 
@@ -10,15 +12,29 @@ import { HistoryApiStoreService } from '../../services/history-api/history-api-s
 })
 export class HistoryComponent implements OnInit {
   historyList: any;
-  constructor(private  historyService:HistoryApiStoreService) {
-  }
-  dataSource = []
+  history: any;
+  constructor(
+    private historyService: HistoryApiStoreService,
+    private route: Router
+  ) {}
+  dataSource = [];
   ngOnInit(): void {
     this.historyService.listHistory();
-    setTimeout(() => this.historyList = this.historyService.state,2000)
-    
-    
+    setTimeout(() => (this.historyList = this.historyService.state), 2000);
   }
   displayedColumns = ['id', 'worker', 'machine', 'date', 'edit'];
-  
+
+  newHistory() {
+    this.route.navigateByUrl('/add-history');
+  }
+  editHistory(id:number){
+    this.historyService.getHistoryById(id)
+    this.history = this.historyService.state
+    
+
+
+    
+    console.log(this.history)
+
+  }
 }
