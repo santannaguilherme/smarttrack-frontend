@@ -16,7 +16,7 @@ export class HistoryApiService {
   getHistoryById(id: number) {
     let params = new HttpParams();
     params = params.append('id', id);
-    return this.http.get<History[]>(this.url, {params});
+    return this.http.get<History>(this.url, {params});
   }
   saveHistory(history: History): Observable<History> {
     let httpHeaders = new HttpHeaders({
@@ -25,5 +25,21 @@ export class HistoryApiService {
     });
     let options = { headers: httpHeaders };
     return this.http.post<History>(this.url, history, options);
+  }
+  editHistory(history: History): Observable<History> {
+    let httpHeaders = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Cache-Control': 'no-cache',
+    });
+    let options = { headers: httpHeaders };
+    return this.http.put<History>(this.url + '/'+history.id, history, options);
+  }
+  deleteHistory(id: number): Observable<History> {
+    let httpHeaders = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Cache-Control': 'no-cache',
+    });
+    let options = { headers: httpHeaders };
+    return this.http.delete<History>(this.url + '/'+id, options);
   }
 }

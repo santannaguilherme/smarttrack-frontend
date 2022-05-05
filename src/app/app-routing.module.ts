@@ -2,6 +2,7 @@ import { NgModule, Component } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HistoryComponent } from './modules/history/components/history-component/history.component';
 import { HistoryCreateComponent } from './modules/history/components/history-create-component/historyCreate.component';
+import { HistoryEditComponent } from './modules/history/components/history-edit-component/historyEdit.component';
 
 const routes: Routes = [
   {
@@ -10,6 +11,7 @@ const routes: Routes = [
   },
 
   { path: 'add-history', component: HistoryCreateComponent },
+  { path: 'edit-history', component: HistoryEditComponent },
   {
     path: '',
     component: HistoryComponent,

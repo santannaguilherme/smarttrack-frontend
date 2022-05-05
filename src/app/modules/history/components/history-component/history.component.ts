@@ -16,25 +16,28 @@ export class HistoryComponent implements OnInit {
   constructor(
     private historyService: HistoryApiStoreService,
     private route: Router
-  ) {}
+  ) { }
   dataSource = [];
-  ngOnInit(): void {
-    this.historyService.listHistory();
-    setTimeout(() => (this.historyList = this.historyService.state), 2000);
+  async ngOnInit(): Promise<void> {
+    this.historyList = []
+    this.historyList = await this.historyService.listHistory()
   }
-  displayedColumns = ['id', 'worker', 'machine', 'date', 'edit'];
+  
+  displayedColumns = ['id', 'worker', 'machine', 'date', 'edit','delete'];
 
   newHistory() {
     this.route.navigateByUrl('/add-history');
   }
-  editHistory(id:number){
-    this.historyService.getHistoryById(id)
-    this.history = this.historyService.state
-    
+  editHistory(id: number) {
+    this.route.navigate(['/edit-history'], { queryParams: { id: id } });
 
-
-    
-    console.log(this.history)
-
+  }
+  deleteHistory(id:number){
+    this.historyService.deleteHistoryById(id);
+    this.ngOnInit()
+  }
+  ngOnDestroy(){
+    this.historyList = []
+    console.log('destuiru')
   }
 }

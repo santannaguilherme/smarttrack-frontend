@@ -12,28 +12,21 @@ export class HistoryApiStoreService extends Store<History[]> {
     super([]);
   }
 
-  historyQuery() {
-    return this.api.getHistory();
+  listHistory(): Promise<History[]> {
+    return this.api.getHistory().toPromise();
   }
 
-  listHistory() {
-    this.setState([]);
-    console.log('here');
-    this.historyQuery().subscribe((data) => {
-      for (let item of data) {
-        let list = this.state;
-        list.push(item);
-        this.setState(list);
-      }
-    });
-  }
   saveHistory(history: History) {
     return this.api.saveHistory(history);
   }
+  editHistory(history: History) {
+    return this.api.editHistory(history);
+  }
 
-  getHistoryById(id: number) {
-    this.api.getHistoryById(id).subscribe((data) => {
-      this.setState(data);
-    });
+  getHistoryById(id: number): Promise<History> {
+    return this.api.getHistoryById(id).toPromise();
+  }
+  deleteHistoryById(id: number) {
+    return this.api.deleteHistory(id).subscribe();
   }
 }
