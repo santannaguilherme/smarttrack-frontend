@@ -1,9 +1,9 @@
 <form class="form" [formGroup]="pageForm">
-  <h2>Adicionar</h2>
+  <h2>Editar</h2>
 
   <mat-form-field class="example-full-width" appearance="fill">
     <mat-label>Id</mat-label>
-    <input matInput type="number" formControlName="id"  [placeholder]="'Select'"/>
+    <input matInput [readonly]="true" type="number" formControlName="id"  />
   </mat-form-field>
   <mat-form-field class="example-full-width" appearance="fill">
     <mat-label>Nome</mat-label>
@@ -15,7 +15,7 @@
   </mat-form-field>
   <mat-form-field class="example-full-width" appearance="fill">
     <mat-label>Data</mat-label>
-    <input matInput type="date" formControlName="dateTime" placeholder="Nome"/>
+    <input matInput type="date" formControlName="date" placeholder="Nome"/>
   </mat-form-field>
 </form>
-<button class="button" mat-raised-button (click)="postHistory()">Enviar</button>
+<button class="button" mat-raised-button (click)="postMeasurements()">Enviar</button>

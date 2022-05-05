@@ -6,16 +6,20 @@
     <input matInput type="number" formControlName="id"  [placeholder]="'Select'"/>
   </mat-form-field>
   <mat-form-field class="example-full-width" appearance="fill">
-    <mat-label>Nome</mat-label>
-    <input matInput type="text" formControlName="worker" placeholder="Nome"/>
-  </mat-form-field>
-  <mat-form-field class="example-full-width" appearance="fill">
     <mat-label>Máquina</mat-label>
     <input matInput type="text" formControlName="machine" placeholder="Nome"/>
   </mat-form-field>
   <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Temperatura</mat-label>
+    <input matInput type="number" formControlName="temperature" placeholder="Temperatura"/>
+  </mat-form-field>
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>battery</mat-label>
+    <input matInput type="number" formControlName="battery" placeholder="Bateria"/>
+  </mat-form-field>
+  <mat-form-field class="example-full-width" appearance="fill">
     <mat-label>Data</mat-label>
-    <input matInput type="date" formControlName="dateTime" placeholder="Nome"/>
+    <input matInput type="date" formControlName="dateTime" placeholder="Data"/>
   </mat-form-field>
 </form>
-<button class="button" mat-raised-button (click)="postHistory()">Enviar</button>
+<button class="button" mat-raised-button (click)="postMeasurements()">Enviar</button>

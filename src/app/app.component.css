@@ -1,0 +1,9 @@
+.sidenav{
+    width: 200px;
+}
+router-outlet{
+    overflow: auto;
+}
+button{
+    width: 199px;
+}

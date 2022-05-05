@@ -21,7 +21,7 @@ export class HistoryCreateComponent implements OnInit {
       id: [''],
       worker: [''],
       machine: [''],
-      date: [''],
+      dateTime: [''],
     });
   }
   dataSource = [];

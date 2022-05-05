@@ -9,12 +9,16 @@ import { HttpClientModule } from '@angular/common/http';
 import { HistoryModule } from './modules/history/history.module';
 import { AppRoutingModule } from './app-routing.module';
 import { MaintenanceModule } from './modules/maintanance/maintenance.module';
+import { MeasurementsModule } from './modules/measurements/measurements.module';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [
     AppComponent,
   ],
-  exports:[AppComponent],
+  exports: [AppComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -22,7 +26,11 @@ import { MaintenanceModule } from './modules/maintanance/maintenance.module';
     HttpClientModule,
     HistoryModule,
     MaintenanceModule,
-    AppRoutingModule
+    MeasurementsModule,
+    AppRoutingModule,
+    MatToolbarModule,
+    MatSidenavModule,
+    MatButtonModule
   ],
   providers: [HttpClientModule,],
   bootstrap: [AppComponent]

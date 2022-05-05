@@ -6,11 +6,21 @@ import { HistoryEditComponent } from './modules/history/components/history-edit-
 import { MaintenanceComponent } from './modules/maintanance/components/maintenance-component/maintenance.component';
 import { MaintenanceCreateComponent } from './modules/maintanance/components/maintenance-create-component/maintenanceCreate.component';
 import { MaintenanceEditComponent } from './modules/maintanance/components/maintenance-edit-component/maintenanceEdit.component';
+import { MeasurementsComponent } from './modules/measurements/components/measurement-component/measurements.component';
+import { MeasurementsCreateComponent } from './modules/measurements/components/measurement-create-component/measurementsCreate.component';
+import { MeasurementsEditComponent } from './modules/measurements/components/measurement-edit-component/measurementsEdit.component';
 
 const routes: Routes = [
   {
     path: 'history',
     component: HistoryComponent,
+  },
+
+  { path: 'add-measurement', component: MeasurementsCreateComponent },
+  { path: 'edit-measurement', component: MeasurementsEditComponent },
+  {
+    path: 'measurements',
+    component: MeasurementsComponent,
   },
 
   { path: 'add-history', component: HistoryCreateComponent },
