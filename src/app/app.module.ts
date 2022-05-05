@@ -8,6 +8,7 @@ import { MatTableModule } from '@angular/material/table';
 import { HttpClientModule } from '@angular/common/http';
 import { HistoryModule } from './modules/history/history.module';
 import { AppRoutingModule } from './app-routing.module';
+import { MaintenanceModule } from './modules/maintanance/maintenance.module';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { AppRoutingModule } from './app-routing.module';
     MatTableModule,
     HttpClientModule,
     HistoryModule,
+    MaintenanceModule,
     AppRoutingModule
   ],
   providers: [HttpClientModule,],

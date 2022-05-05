@@ -1,0 +1,25 @@
+<form class="form" [formGroup]="pageForm">
+  <h2>Adicionar</h2>
+
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Id</mat-label>
+    <input matInput type="number" formControlName="id"  [placeholder]="'Select'"/>
+  </mat-form-field>
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Nome</mat-label>
+    <input matInput type="text" formControlName="worker" placeholder="Nome"/>
+  </mat-form-field>
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Máquina</mat-label>
+    <input matInput type="text" formControlName="machine" placeholder="Nome"/>
+  </mat-form-field>
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Local</mat-label>
+    <input matInput type="text" formControlName="location" placeholder="Nome"/>
+  </mat-form-field>
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Data</mat-label>
+    <input matInput type="date" formControlName="dateTime" placeholder="Nome"/>
+  </mat-form-field>
+</form>
+<button class="button" mat-raised-button (click)="postHistory()">Enviar</button>

@@ -1,0 +1,52 @@
+<div class="container">
+  <h1>Histórico de Uso</h1>
+  <div class="table">
+    <table mat-table [dataSource]="maintenanceList" class="mat-elevation-z8">
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef>Id</th>
+        <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="worker">
+        <th mat-header-cell *matHeaderCellDef>Operador</th>
+        <td mat-cell *matCellDef="let element">{{ element.worker }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="machine">
+        <th mat-header-cell *matHeaderCellDef>Máquina</th>
+        <td mat-cell *matCellDef="let element">{{ element.machine }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="location">
+        <th mat-header-cell *matHeaderCellDef>Local</th>
+        <td mat-cell *matCellDef="let element">{{ element.location }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="date">
+        <th mat-header-cell *matHeaderCellDef>Data</th>
+        <td mat-cell *matCellDef="let element">{{ element.dateTime }}</td>
+      </ng-container>
+      <ng-container matColumnDef="edit">
+        <th mat-header-cell *matHeaderCellDef>Editar</th>
+        <td mat-cell *matCellDef="let element">
+          <mat-icon (click)="editMaintenance(element.id)" aria-hidden="false">edit</mat-icon>
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="delete">
+        <th mat-header-cell *matHeaderCellDef>Apagar</th>
+        <td mat-cell *matCellDef="let element">
+          <mat-icon (click)="deleteMaintenance(element.id)" aria-hidden="false">delete</mat-icon>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+  </div>
+
+  <div class="button">
+    <button mat-fab (click)="newMaintenance()" aria-label="Example icon button with a home icon">
+      +
+    </button>
+  </div>
+</div>
