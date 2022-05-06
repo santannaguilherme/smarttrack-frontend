@@ -27,7 +27,7 @@ export class HistoryApiService {
     let options = { headers: httpHeaders };
     let params = new HttpParams();
     params = params.append('id', id);
-    return this.http.get<History>(this.url, {params});
+    return this.http.get<History>(this.url + '/'+id);
   }
   saveHistory(history: History): Observable<History> {
     let httpHeaders = new HttpHeaders({

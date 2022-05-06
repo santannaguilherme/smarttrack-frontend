@@ -1,3 +1,4 @@
+import { DatePipe } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -19,7 +20,8 @@ export class MaintenanceEditComponent implements OnInit {
     private maintenanceService: MaintenanceApiStoreService,
     private fb: FormBuilder,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private datePipe: DatePipe
   ) {
     this.pageForm = this.fb.group({
       id: [''],
@@ -37,11 +39,11 @@ export class MaintenanceEditComponent implements OnInit {
     })
     this.maintenance = await this.maintenanceService.getMaintenanceById(this.id.id)
     this.pageForm = this.fb.group({
-      id: [this.maintenance[0].id],
-      worker: [this.maintenance[0].worker],
-      machine: [this.maintenance[0].machine],
-      dateTime: [this.maintenance[0].dateTime],
-      location: [this.maintenance[0].location],
+      id: [this.maintenance.id],
+      worker: [this.maintenance.worker],
+      machine: [this.maintenance.machine],
+      dateTime: [this.datePipe.transform(this.maintenance.dateTime, "yyyy-MM-dd")],
+      location: [this.maintenance.location],
     });
     console.log(this.maintenance)
   }

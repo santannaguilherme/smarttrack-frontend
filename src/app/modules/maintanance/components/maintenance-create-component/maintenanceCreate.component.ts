@@ -18,7 +18,6 @@ export class MaintenanceCreateComponent implements OnInit {
     private route: Router
   ) {
     this.pageForm = this.fb.group({
-      id: [''],
       worker: [''],
       machine: [''],
       dateTime: [''],

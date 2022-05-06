@@ -1,3 +1,4 @@
+import { DatePipe } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -19,7 +20,8 @@ export class MeasurementsEditComponent implements OnInit {
     private measurementsService: MeasurementsApiStoreService,
     private fb: FormBuilder,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private datePipe: DatePipe
   ) {
     this.pageForm = this.fb.group({
       id: [''],
@@ -37,11 +39,11 @@ export class MeasurementsEditComponent implements OnInit {
     })
     this.measurements = await this.measurementsService.getMeasurementsById(this.id.id)
     this.pageForm = this.fb.group({
-      id: [this.measurements[0].id],
-      temperature: [this.measurements[0].temperature],
-      battery: [this.measurements[0].battery],
-      machine: [this.measurements[0].machine],
-      date: [this.measurements[0].dateTime],
+      id: [this.measurements.id],
+      temperature: [this.measurements.temperature],
+      battery: [this.measurements.battery],
+      machine: [this.measurements.machine],
+      dateTime: [this.datePipe.transform(this.measurements.dateTime,"yyyy-MM-dd")],
     });
     console.log(this.measurements)
   }
@@ -50,7 +52,7 @@ export class MeasurementsEditComponent implements OnInit {
     const measurements = this.pageForm.value as Measurements;
     this.measurementsService
       .editMeasurements(measurements)
-      .subscribe(() => this.router.navigateByUrl('/'));
-    this.router.navigateByUrl('/');
+      .subscribe(() => this.router.navigateByUrl('/measurements'));
+    this.router.navigateByUrl('/measurements');
   }
 }

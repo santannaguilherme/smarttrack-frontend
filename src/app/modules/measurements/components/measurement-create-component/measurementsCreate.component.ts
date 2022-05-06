@@ -18,7 +18,6 @@ export class MeasurementsCreateComponent implements OnInit {
     private route: Router
   ) {
     this.pageForm = this.fb.group({
-      id: [''],
       temperature: [''],
       battery: [''],
       machine: [''],
@@ -33,6 +32,6 @@ export class MeasurementsCreateComponent implements OnInit {
     this.measurementsService
       .saveMeasurements(measurements)
       .subscribe((data) => this.route.navigateByUrl('/'));
-    this.route.navigateByUrl('/');
+    this.route.navigateByUrl('/measurements');
   }
 }

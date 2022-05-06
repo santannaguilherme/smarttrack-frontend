@@ -1,8 +1,8 @@
 .sidenav{
     width: 200px;
 }
-router-outlet{
-    overflow: auto;
+.example-container{
+    height: 91%;
 }
 button{
     width: 199px;

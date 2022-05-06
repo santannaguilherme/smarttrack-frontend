@@ -8,8 +8,8 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root',
 })
 export class MeasurementsApiService {
-  url = environment.api + '/Measurements';
-  constructor(private http: HttpClient) {}
+  url = environment.api + '/Measurement';
+  constructor(private http: HttpClient) { }
 
   getMeasurements() {
     let httpHeaders = new HttpHeaders({
@@ -18,7 +18,7 @@ export class MeasurementsApiService {
       'Access-Control-Allow-Origin': '*',
     });
     let options = { headers: httpHeaders };
-    return this.http.get<Measurements[]>(this.url,options);
+    return this.http.get<Measurements[]>(this.url, options);
   }
   getMeasurementsById(id: number) {
     let httpHeaders = new HttpHeaders({
@@ -29,7 +29,7 @@ export class MeasurementsApiService {
     let options = { headers: httpHeaders };
     let params = new HttpParams();
     params = params.append('id', id);
-    return this.http.get<Measurements>(this.url, {params});
+    return this.http.get<Measurements>(this.url + '/' + id);
   }
   saveMeasurements(measurements: Measurements): Observable<Measurements> {
     let httpHeaders = new HttpHeaders({
@@ -47,7 +47,7 @@ export class MeasurementsApiService {
       'Access-Control-Allow-Origin': '*',
     });
     let options = { headers: httpHeaders };
-    return this.http.put<Measurements>(this.url + '/'+measurements.id, measurements, options);
+    return this.http.put<Measurements>(this.url + '/' + measurements.id, measurements, options);
   }
   deleteMeasurements(id: number): Observable<Measurements> {
     let httpHeaders = new HttpHeaders({
@@ -56,6 +56,6 @@ export class MeasurementsApiService {
       'Access-Control-Allow-Origin': '*',
     });
     let options = { headers: httpHeaders };
-    return this.http.delete<Measurements>(this.url + '/'+id, options);
+    return this.http.delete<Measurements>(this.url + '/' + id, options);
   }
 }

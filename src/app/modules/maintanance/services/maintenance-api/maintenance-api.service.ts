@@ -27,9 +27,7 @@ export class MaintenanceApiService {
       'Access-Control-Allow-Origin': '*',
     });
     let options = { headers: httpHeaders };
-    let params = new HttpParams();
-    params = params.append('id', id);
-    return this.http.get<Maintenance>(this.url, {params});
+    return this.http.get<Maintenance>(this.url+'/'+id);
   }
   saveMaintenance(maintenance: Maintenance): Observable<Maintenance> {
     let httpHeaders = new HttpHeaders({

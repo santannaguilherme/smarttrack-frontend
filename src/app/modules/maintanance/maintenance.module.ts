@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
@@ -41,6 +41,6 @@ import { MaintenanceEditComponent } from './components/maintenance-edit-componen
     MatTableModule,
     MatIconModule
   ],
-  providers: [],
+  providers: [DatePipe],
 })
 export class MaintenanceModule { }

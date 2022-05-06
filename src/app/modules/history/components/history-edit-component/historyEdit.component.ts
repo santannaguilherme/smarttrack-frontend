@@ -1,3 +1,4 @@
+import { DatePipe } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -19,13 +20,14 @@ export class HistoryEditComponent implements OnInit {
     private historyService: HistoryApiStoreService,
     private fb: FormBuilder,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private datePipe: DatePipe
   ) {
     this.pageForm = this.fb.group({
       id: [''],
       worker: [''],
       machine: [''],
-      date: [''],
+      dateTime: [''],
     });
   }
   dataSource = [];
@@ -36,10 +38,10 @@ export class HistoryEditComponent implements OnInit {
     })
     this.history = await this.historyService.getHistoryById(this.id.id)
     this.pageForm = this.fb.group({
-      id: [this.history[0].id],
-      worker: [this.history[0].worker],
-      machine: [this.history[0].machine],
-      date: [this.history[0].dateTime],
+      id: [this.history.id],
+      worker: [this.history.worker],
+      machine: [this.history.machine],
+      dateTime: [this.datePipe.transform(this.history.dateTime,"yyyy-MM-dd")],
     });
     console.log(this.history)
   }
