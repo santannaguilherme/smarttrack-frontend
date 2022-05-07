@@ -1,13 +1,13 @@
 # Smarttrack
 
 Requesitos:
-Node >= 16
-Angular >= 13
+Node >= 16 (https://nodejs.org/en/download/)
+Angular >= 13 (no terminal  executar o comando npm install -g @angular/cli)
 
 ## Instalar dependencias do projeto 
 
-Run `npm i` 
+Executar `npm i` 
 
 ## Rodar o Server 
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`.
+Executar `ng serve`. Acesse `http://localhost:4200/`.
